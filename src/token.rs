@@ -1,22 +1,49 @@
 #[derive(Debug, Clone, Copy)]
-pub enum Token {
-    Illegal { pos: usize },
-    Eof { pos: usize },
+pub struct Span(usize, usize);
 
-    Ident { pos: usize, len: usize },
-    Int { pos: usize, len: usize },
+impl Span {
+    pub fn new(pos: usize, len: usize) -> Self {
+        Self(pos, len)
+    }
 
-    Assign { pos: usize },
-    Plus { pos: usize },
+    pub fn pos(&self) -> usize {
+        self.0
+    }
 
-    Comma { pos: usize },
-    Semicolon { pos: usize },
+    pub fn len(&self) -> usize {
+        self.1
+    }
+}
 
-    LParan { pos: usize },
-    RParan { pos: usize },
-    LBrace { pos: usize },
-    RBrace { pos: usize },
+#[derive(Debug, PartialEq, Clone, Copy)]
+pub enum TokenKind {
+    Illegal,
+    Eof,
 
-    Let { pos: usize, len: usize },
-    Fn { pos: usize, len: usize },
+    Ident,
+    Int,
+    Float,
+    String,
+
+    Assign,
+    Plus,
+    Minus,
+
+    Comma,
+    Semicolon,
+
+    LParan,
+    RParan,
+    LBrace,
+    RBrace,
+
+    Let,
+    Fn,
+    Return,
+}
+
+#[derive(Debug, Clone, Copy)]
+pub struct Token {
+    pub kind: TokenKind,
+    pub span: Span,
 }
