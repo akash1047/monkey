@@ -1,5 +1,4 @@
-mod token;
 mod lexer;
+mod token;
 
-fn main() {
-}
+fn main() {}
