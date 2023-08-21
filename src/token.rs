@@ -40,6 +40,10 @@ pub enum TokenKind {
     Let,
     Fn,
     Return,
+    If,
+    Else,
+    True,
+    False,
 }
 
 #[derive(Debug, Clone, Copy)]

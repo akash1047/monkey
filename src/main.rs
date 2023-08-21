@@ -1,7 +1,5 @@
-use crate::{lexer::Lexer, token::TokenKind};
-
-mod lexer;
-mod token;
+use monkey::lexer::Lexer;
+use monkey::token::TokenKind;
 
 fn main() {
     let mut rl = rustyline::DefaultEditor::new().expect("failed to open repel");

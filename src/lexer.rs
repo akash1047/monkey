@@ -1,9 +1,13 @@
 use crate::token::*;
 
-const KEYWORDS: [(&'static str, TokenKind); 3] = [
+const KEYWORDS: [(&'static str, TokenKind); 7] = [
     ("fn", TokenKind::Fn),
     ("let", TokenKind::Let),
     ("return", TokenKind::Return),
+    ("if", TokenKind::If),
+    ("else", TokenKind::Else),
+    ("true", TokenKind::True),
+    ("false", TokenKind::False),
 ];
 
 pub struct Lexer {
